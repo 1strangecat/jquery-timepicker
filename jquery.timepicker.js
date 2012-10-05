@@ -352,6 +352,8 @@ requires jQuery 1.7+
 		var drCur = 0;
 		var drLen = dr.length;
 
+		list.append('<li>None</li>');
+
 		for (var i=start; i <= end; i += settings.step*60) {
 			var timeInt = i;
 
@@ -785,6 +787,11 @@ requires jQuery 1.7+
 		}
 
 		var time = new Date(_baseDate.valueOf() + (seconds*1000));
+
+		if (isNaN(time.getTime())) {
+			return;
+		}
+
 		var output = '';
 		var hour, code;
 
